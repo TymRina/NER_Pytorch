@@ -12,18 +12,16 @@ class NERInference:
             vocab_path: 词汇表路径
             tag_map_path: 标签映射路径
         """
-        # 获取当前脚本所在目录的绝对路径
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        
+        # 使用相对路径，相对于项目根目录
         # 设置默认路径
         if vocab_path is None:
-            vocab_path = os.path.join(current_dir, 'runs', 'vocab.json')
+            vocab_path = os.path.join('runs', 'vocab.json')
         if tag_map_path is None:
-            tag_map_path = os.path.join(current_dir, 'runs', 'tag_map.json')
+            tag_map_path = os.path.join('runs', 'tag_map.json')
         
         # 如果没有指定模型路径，自动查找最新的或匹配参数的模型文件
         if model_path is None:
-            runs_dir = os.path.join(current_dir, 'runs')
+            runs_dir = 'runs'
             
             # 查找所有best_model相关的文件，包括传统的best_model.pth和新的参数化格式
             model_files = []
@@ -48,7 +46,7 @@ class NERInference:
         self.hidden_dim = 256     # 默认值
         
         # 尝试从模型参数文件加载参数
-        model_params_path = os.path.join(current_dir, 'runs', 'model_params.json')
+        model_params_path = os.path.join('runs', 'model_params.json')
         if os.path.exists(model_params_path):
             try:
                 with open(model_params_path, 'r', encoding='utf-8') as f:

@@ -7,8 +7,9 @@ import os
 random.seed(42)
 
 # 数据路径
-DATA_PATH = "e:\\TymRina\\课程资料\\四阶段\\NER命名实体识别\\NER命名实体识别数据集\\data.json"
-OUTPUT_DIR = "e:\\TymRina\\课程资料\\四阶段\\NER命名实体识别\\dataset"
+# 使用相对路径，相对于项目根目录
+DATA_PATH = os.path.join("NER命名实体识别数据集", "data.json")
+OUTPUT_DIR = "dataset"
 
 # 创建输出目录
 os.makedirs(OUTPUT_DIR, exist_ok=True)
