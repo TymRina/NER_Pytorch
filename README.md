@@ -1,152 +1,152 @@
 # NER_Pytorch
 
-A PyTorch-based Named Entity Recognition (NER) system for Chinese text processing.
+基于PyTorch的中文文本命名实体识别（NER）系统。
 
-## Overview
+## 项目概述
 
-This project implements a comprehensive NER system specifically designed for Chinese text analysis. It provides end-to-end functionality from data preprocessing to model training, validation, and inference, with a user-friendly graphical interface for easy interaction.
+本项目实现了一个专为中文文本分析设计的完整NER系统。它提供了从数据预处理到模型训练、验证和推理的端到端功能，并配有用户友好的图形界面，便于交互使用。
 
-## Features
+## 功能特性
 
-- **Data Preprocessing**: Efficient handling of Chinese text datasets for NER tasks
-- **Model Training & Validation**: Complete pipeline for training and evaluating NER models
-- **Entity Recognition**: Accurate identification of named entities in Chinese text
-- **Long Text Support**: Robust processing of lengthy documents with proper entity position tracking
-- **Graphical Interface**: Intuitive PyQt5-based GUI for user interaction
-- **Pretrained Model**: Includes trained model weights for immediate use
+- **数据预处理**：高效处理中文NER任务的文本数据集
+- **模型训练与验证**：完整的NER模型训练和评估流程
+- **实体识别**：准确识别中文文本中的命名实体
+- **长文本支持**：稳健处理长文档并正确跟踪实体位置
+- **图形界面**：基于PyQt5的直观GUI，方便用户交互
+- **预训练模型**：包含已训练的模型权重，可直接使用
 
-## Technology Stack
+## 技术栈
 
-- **Framework**: PyTorch
-- **Model Architecture**: LSTM-based neural network
-- **GUI**: PyQt5
-- **Language**: Python 3.7+
+- **框架**：PyTorch
+- **模型架构**：基于LSTM的神经网络
+- **图形界面**：PyQt5
+- **开发语言**：Python 3.7+
 
-## Installation
+## 安装说明
 
-### Prerequisites
+### 前置要求
 
-- Python 3.7 or higher
-- PyTorch 1.6 or higher
+- Python 3.7 或更高版本
+- PyTorch 1.6 或更高版本
 - PyQt5
 
-### Setup
+### 安装步骤
 
-1. Clone the repository:
+1. 克隆仓库：
    ```bash
-   git clone https://github.com/yourusername/NER_Pytorch.git
+   git clone https://github.com/TymRina/NER_Pytorch.git
    cd NER_Pytorch
    ```
 
-2. Install required dependencies:
+2. 安装所需依赖：
    ```bash
    pip install -r requirements.txt
    ```
 
-   *Note: If requirements.txt is not available, install dependencies manually:*
+   *注意：如果requirements.txt不可用，请手动安装依赖：*
    ```bash
    pip install torch torchvision torchaudio
    pip install PyQt5
    ```
 
-## Usage
+## 使用方法
 
-### 1. Data Preprocessing
+### 1. 数据预处理
 
 ```bash
 python 01_data_preprocess.py
 ```
 
-This script processes raw data into the required format for model training.
+该脚本将原始数据处理为模型训练所需的格式。
 
-### 2. Model Training
+### 2. 模型训练
 
 ```bash
 python 02_train.py
 ```
 
-Or use the provided PowerShell script:
+或使用提供的PowerShell脚本：
 ```powershell
 ./run_training.ps1
 ```
 
-Trained models and parameters will be saved in the `runs` directory.
+训练后的模型和参数将保存在`runs`目录中。
 
-### 3. Model Validation
+### 3. 模型验证
 
 ```bash
 python 03_val.py
 ```
 
-This script evaluates the trained model's performance on the validation set.
+该脚本在验证集上评估训练模型的性能。
 
-### 4. Inference
+### 4. 实体识别推理
 
 ```bash
 python 04_infer.py
 ```
 
-This script provides a command-line interface for entity recognition.
+该脚本提供命令行接口用于实体识别。
 
-### 5. Graphical Interface
+### 5. 图形界面
 
 ```bash
 python 05_pyqt_interface.py
 ```
 
-Launch the user-friendly GUI for interactive entity recognition.
+启动用户友好的GUI进行交互式实体识别。
 
-## Project Structure
+## 项目结构
 
 ```
 NER_Pytorch/
-├── 01_data_preprocess.py    # Data preprocessing script
-├── 02_train.py              # Model training script
-├── 03_val.py                # Model validation script
-├── 04_infer.py              # Inference script
-├── 05_pyqt_interface.py     # PyQt GUI interface
-├── model.py                 # Neural network model definition
-├── loss_related_code.py     # Loss function implementation
-├── run_training.ps1         # Training PowerShell script
-├── dataset/                 # Processed dataset files
-├── NER命名实体识别数据集/     # Raw dataset files
-└── runs/                    # Model weights and parameters
-    ├── best_model.pth       # Best trained model
-    ├── loss_curve.png       # Training loss curve
-    ├── model_params.json    # Model parameters
-    ├── tag_map.json         # Entity tag mapping
-    └── vocab.json           # Vocabulary dictionary
+├── 01_data_preprocess.py    # 数据预处理脚本
+├── 02_train.py              # 模型训练脚本
+├── 03_val.py                # 模型验证脚本
+├── 04_infer.py              # 推理脚本
+├── 05_pyqt_interface.py     # PyQt图形界面
+├── model.py                 # 神经网络模型定义
+├── loss_related_code.py     # 损失函数实现
+├── run_training.ps1         # 训练PowerShell脚本
+├── dataset/                 # 处理后的数据集文件
+├── NER命名实体识别数据集/     # 原始数据集文件
+└── runs/                    # 模型权重和参数
+    ├── best_model.pth       # 最佳训练模型
+    ├── loss_curve.png       # 训练损失曲线
+    ├── model_params.json    # 模型参数
+    ├── tag_map.json         # 实体标签映射
+    └── vocab.json           # 词汇词典
 ```
 
-## Model Details
+## 模型详情
 
-The NER model is based on a bidirectional LSTM architecture with the following key components:
+NER模型基于双向LSTM架构，包含以下关键组件：
 
-- Embedding layer for character representation
-- Bidirectional LSTM layers for contextual feature extraction
-- Linear layer with CRF (Conditional Random Field) for sequence labeling
+- 用于字符表示的嵌入层
+- 用于上下文特征提取的双向LSTM层
+- 带有CRF（条件随机场）的线性层，用于序列标注
 
-## Performance
+## 性能表现
 
-The model achieves high accuracy in recognizing various types of named entities in Chinese text, including:
-- Person names
-- Locations
-- Organizations
-- And other custom entity types
+该模型在识别中文文本中各种类型的命名实体方面具有较高的准确性，包括：
+- 人名
+- 地点
+- 组织
+- 其他自定义实体类型
 
-## License
+## 许可证
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+本项目采用MIT许可证 - 详见[LICENSE](LICENSE)文件。
 
-## Acknowledgments
+## 致谢
 
-- This project is built using PyTorch, which provides excellent support for deep learning research and development.
-- The CRF implementation is adapted from state-of-the-art NER research.
+- 本项目基于PyTorch构建，PyTorch为深度学习研究和开发提供了出色的支持。
+- CRF实现改编自最先进的NER研究成果。
 
-## Contributing
+## 贡献
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+欢迎贡献！请随时提交Pull Request。
 
-## Contact
+## 联系方式
 
-For any questions or inquiries, please open an issue on GitHub.
+如有任何问题或疑问，请在GitHub上提交issue。
