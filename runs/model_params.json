@@ -1,0 +1,8 @@
+{
+  "embedding_dim": 64,
+  "hidden_dim": 128,
+  "vocab_size": 4944,
+  "tagset_size": 87,
+  "last_epoch": 5,
+  "best_val_loss": 3.4354893250898884
+}
